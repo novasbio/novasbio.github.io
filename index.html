@@ -31,6 +31,13 @@
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             min-height: 100vh;
+            backdrop-filter: blur(3px);
+            box-shadow: 0 0 15px rgba(147, 112, 219, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .content:hover {
+            transform: translateY(-5px);
         }
 
         header {
@@ -39,37 +46,55 @@
             border-bottom: 1px solid #444;
         }
 
+        h1 {
+            color: #9370DB;
+            text-shadow: 0 0 10px rgba(147, 112, 219, 0.7);
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+        }
+
+        h1:hover {
+            letter-spacing: 4px;
+        }
+
         main {
             padding: 20px 0;
         }
 
         section {
             margin-bottom: 30px;
+            animation: fadeIn 0.5s ease;
         }
 
-        h1, h2 {
-            color: #eee;
+        h2, h3 {
+            color: #9370DB;
             margin-bottom: 15px;
+            border-left: 3px solid #9370DB;
+            padding-left: 10px;
         }
 
         a {
             color: #9370DB;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         a:hover {
             text-decoration: underline;
+            color: #B19CD9;
         }
 
         footer {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #444;
+            position: relative;
         }
 
         .time-display {
             font-weight: bold;
             color: #9370DB;
+            animation: pulse 2s infinite;
         }
 
         .image-gallery {
@@ -83,6 +108,14 @@
             width: 100%;
             border-radius: 8px;
             border: 2px solid #9370DB;
+            transition: all 0.3s ease;
+            filter: brightness(0.9);
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+            box-shadow: 0 0 20px rgba(147, 112, 219, 0.5);
         }
 
         .lists-container {
@@ -110,6 +143,112 @@
 
         .anime-character {
             margin-bottom: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .anime-character:hover {
+            transform: translateX(5px);
+            color: #B19CD9;
+        }
+
+        .copyright {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copyright:hover {
+            color: #9370DB;
+        }
+
+        .hidden-message {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #9370DB;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        body:hover .hidden-message {
+            opacity: 1;
+        }
+
+        .credits-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .credits-content {
+            text-align: center;
+            padding: 30px;
+            background-color: #111;
+            border-radius: 10px;
+            border: 2px solid #9370DB;
+            max-width: 80%;
+            transform: translateY(30px);
+            transition: transform 0.5s ease;
+        }
+
+        .credits-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .credits-overlay.active .credits-content {
+            transform: translateY(0);
+        }
+
+        .close-credits {
+            margin-top: 20px;
+            padding: 8px 20px;
+            background-color: #9370DB;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-credits:hover {
+            background-color: #B19CD9;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        strong {
+            color: #B19CD9;
+        }
+
+        .category {
+            border-bottom: 1px dotted #444;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -120,7 +259,7 @@
             <h1>Nova's Nebula</h1>
         </header>
         <main>
-            <section id="bio">
+            <section id="bio" class="category">
                 <h2>About Nova</h2>
                 <p><strong>Name:</strong> Nova</p>
                 <p><strong>Nicknames:</strong> Nov, Novs, Novie</p>
@@ -131,9 +270,9 @@
                 <p><strong>Sexuality:</strong> Pansexual</p>
                 <p><strong>Relationship status:</strong> Engaged to my handsome; darling partner, Vampy &lt;3 (<a href="#">@rairhyzz</a>)</p>
                 <p><strong>Timezone:</strong> EST (Georgia, USA) - <span class="time-display" id="current-time">Loading current time...</span></p>
-                <br>
+                
                 <p>There's a lot to know about me so if you read all of this then I applaud you; thank you for all your hard work &lt;3</p>
-                <br>
+                
                 <p>I'm a furry and therian with various fursona's and theriotypes, my main being a Himalayan wolf by the name of Nova, or as most know them; Wolfy.</p>
                 <p>I hate homophobes and transphobes, as well as racists and religious fucks- I basically hate everyone unless I know you ;-;</p>
                 <p>I'm autistic as hell and I'm the disorder king-</p>
@@ -144,25 +283,24 @@
                 <p>Deranged metalhead</p>
                 <p>I hyperfixate like a madman on crack- T-T</p>
                 <p>I share a birthday with Captain Retsu Unohana from Bleach!!</p>
-                <br>
+                
                 <p><strong>Fav thing to do:</strong> Watch anime</p>
                 <p><strong>Fav word:</strong> Fuck- :D</p>
                 <p><strong>Fav color:</strong> Purple</p>
                 <p><strong>Fav shade on the scale of value (white/gray/black):</strong> Black</p>
-                <br>
+                
                 <p>"Sometimes I just wanna jump, but someone keeps pulling me back into the dark abyss of the human world.. For that, I am grateful beyond all definition of the word.." - Me</p>
-                <br>
+                
                 <p>Train wreck & dumpster fire combo</p>
                 <p>Mentally unstable as fuck- I don't know how I'm still here :3</p>
                 <p>I always want to die, but for some reason I've always got a smile on my face =.=</p>
                 <p>I have Dyslexia and Dyscalculia. I most likely will not understand a damn thing you tell me-</p>
                 <p>I have a slight, maybe major alcohol and tobacco addiction; I am however trying to quit.</p>
-                <p>If you text me and I don't respond I'm either busy IRL or I'm actually eeping for once- Either way, I'll text when I can :D</p>
+                <p>If you text me and I don't respond I'm either busy IRL or I'm actually sleeping for once- Either way, I'll text when I can :D</p>
                 <p>I'm not on all the time, and the only times you can actually get a hold of me and talk to me then and there is when I get online at 1-2 AM EST. My parents don't know I have access to my discord account, so I sneak on at night to talk to the people I love and care for the most &lt;3</p>
             </section>
 
-            <!-- Image Gallery -->
-            <section id="gallery">
+            <section id="gallery" class="category">
                 <h2>My Gallery</h2>
                 <div class="image-gallery">
                     <img src="https://raw.githubusercontent.com/novasbio/novasbio.github.io/refs/heads/main/assets/1.png" alt="Nova image 1">
@@ -177,12 +315,14 @@
                 
                 <p><strong>Feb 24th, 2025 - 2:18 am</strong><br>
                 The day and time me and my partner started dating… &lt;3</p>
+            </section>
                 
-                <h3>My disorders</h3>
+            <section id="disorders" class="category">
+                <h2>My disorders</h2>
                 <div class="disorder-list">
                     <p>NPD - Narcissistic Personality Disorder</p>
                     <p>ADD - Attention Deficit Disorder</p>
-                    <p>DID - Dissociative Identity Disorder (multiple personality disorder)</p>
+                    <p>DID - Dissociative Identity Disorder</p>
                     <p>ADHD - Attention-Deficit/Hyperactivity Disorder</p>
                     <p>BPD - Bipolar Disorder</p>
                     <p>OCD - Obsessive Compulsive Disorder</p>
@@ -195,7 +335,10 @@
                     <p>Psychosis</p>
                     <p>Anorexia</p>
                 </div>
+            </section>
                 
+            <section id="people" class="category">
+                <h2>Important People</h2>
                 <div class="lists-container">
                     <div>
                         <h3>My besties!!</h3>
@@ -227,8 +370,10 @@
                         <p>@xzyephyr ~ Donald (Son)</p>
                     </div>
                 </div>
+            </section>
                 
-                <h3>Favorite anime's and characters!!</h3>
+            <section id="anime" class="category">
+                <h2>Favorite anime's and characters!!</h2>
                 <div class="anime-list">
                     <p class="anime-character"><strong>Death Note</strong> - Light Yagami & L. Lawliet</p>
                     <p class="anime-character"><strong>Naruto</strong> - Itachi Uchiha & Madara Uchiha</p>
@@ -258,8 +403,10 @@
                 
                 <p>I've also recently gotten into Alien Stage and my favorite characters are Till & Ivan &lt;3</p>
                 <p>There are many more, but the list would be WAY too long :D</p>
+            </section>
                 
-                <h3>Links</h3>
+            <section id="links" class="category">
+                <h2>Links</h2>
                 <p><strong>Spotify:</strong><br>
                 Main before I lost access~ <a href="https://open.spotify.com/user/31zvbsvuq4kv2oorenzcvq4pvscq?si=4cc7eab2935e4cfd" target="_blank">https://open.spotify.com/user/31zvbsvuq4kv2oorenzcvq4pvscq?si=4cc7eab2935e4cfd</a><br>
                 Account friend let me use~ <a href="https://open.spotify.com/user/316nc4woztpfgz5h6dmtafpfkjge?si=8961716bbe094fde" target="_blank">https://open.spotify.com/user/316nc4woztpfgz5h6dmtafpfkjge?si=8961716bbe094fde</a><br>
@@ -270,67 +417,132 @@
             </section>
         </main>
         <footer>
-            <p>&copy; <span id="current-year">2024</span> Nova's Nebula</p>
+            <p><span class="copyright" id="copyright">&copy; <span id="current-year">2024</span> Nova's Nebula</span></p>
         </footer>
+    </div>
+
+    <div class="credits-overlay" id="credits-overlay">
+        <div class="credits-content">
+            <h2>Website Credits</h2>
+            <p>This website was made by prototbh for my dear friend Nova, with a whole lotta love like, a lot, like so much because I still like you, Nova.</p>
+            <button class="close-credits" id="close-credits">Close</button>
+        </div>
     </div>
 
     <script type="module">
         import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
-        // Nebula animation
-        const nebulaContainer = document.getElementById('nebula-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        // Initialize nebula animation
+        const setupNebula = () => {
+            const nebulaContainer = document.getElementById('nebula-container');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        nebulaContainer.appendChild(renderer.domElement);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            nebulaContainer.appendChild(renderer.domElement);
 
-        // Nebula effect using particles
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCnt = 5000;
+            // Create particles for nebula effect
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCnt = 7000;
 
-        const posArray = new Float32Array(particlesCnt * 3);
-        const colorArray = new Float32Array(particlesCnt * 3);
+            const posArray = new Float32Array(particlesCnt * 3);
+            const colorArray = new Float32Array(particlesCnt * 3);
 
-        for (let i = 0; i < particlesCnt * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 5;
-            colorArray[i] = Math.random();
-        }
+            // Generate random positions and colors for particles
+            for (let i = 0; i < particlesCnt * 3; i += 3) {
+                // Position
+                posArray[i] = (Math.random() - 0.5) * 8;
+                posArray[i + 1] = (Math.random() - 0.5) * 8;
+                posArray[i + 2] = (Math.random() - 0.5) * 8;
+                
+                // Color - favor purple hues
+                colorArray[i] = Math.random() * 0.5 + 0.5; // More red
+                colorArray[i + 1] = Math.random() * 0.3;   // Less green
+                colorArray[i + 2] = Math.random() * 0.5 + 0.5; // More blue
+            }
 
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
 
-        let particleMaterial = new THREE.PointsMaterial({
-            size: 0.02,
-            vertexColors: true,
-            color: 0x9370DB // Purple color for the nebula
-        });
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 0.015,
+                vertexColors: true,
+                transparent: true,
+                blending: THREE.AdditiveBlending
+            });
 
-        const particles = new THREE.Points(particlesGeometry, particleMaterial);
-        scene.add(particles);
+            const particles = new THREE.Points(particlesGeometry, particleMaterial);
+            scene.add(particles);
 
-        camera.position.z = 2;
+            camera.position.z = 2;
+            
+            // Create additional larger particles for stars
+            const starGeometry = new THREE.BufferGeometry();
+            const starCount = 200;
+            const starPositions = new Float32Array(starCount * 3);
+            
+            for (let i = 0; i < starCount * 3; i += 3) {
+                starPositions[i] = (Math.random() - 0.5) * 10;
+                starPositions[i + 1] = (Math.random() - 0.5) * 10;
+                starPositions[i + 2] = (Math.random() - 0.5) * 10;
+            }
+            
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+            
+            const starMaterial = new THREE.PointsMaterial({
+                size: 0.03,
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            const stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
 
-        const animate = () => {
-            requestAnimationFrame(animate);
+            // Mouse interaction
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+            });
 
-            particles.rotation.x += 0.0005;
-            particles.rotation.y += 0.001;
+            // Animation loop
+            const animate = () => {
+                requestAnimationFrame(animate);
 
-            renderer.render(scene, camera);
+                // Rotate particles
+                particles.rotation.x += 0.0003;
+                particles.rotation.y += 0.0005;
+                
+                // Add slight mouse movement influence
+                particles.rotation.x += mouseY * 0.0001;
+                particles.rotation.y += mouseX * 0.0001;
+                
+                // Pulsate particles
+                const time = Date.now() * 0.001;
+                particles.material.size = 0.015 + Math.sin(time) * 0.005;
+                
+                // Twinkle stars
+                stars.material.opacity = 0.6 + Math.sin(time * 1.5) * 0.2;
+
+                renderer.render(scene, camera);
+            };
+
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+            });
         };
 
-        animate();
-
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        });
-
-        // Time and date functions
-        function updateCurrentTime() {
+        // Update current time
+        const updateCurrentTime = () => {
             const options = {
                 timeZone: 'America/New_York',
                 hour: '2-digit',
@@ -344,14 +556,45 @@
             const timeString = formatter.format(now);
             
             document.getElementById('current-time').textContent = `Currently: ${timeString} EST`;
-            
-            // Update year in footer
             document.getElementById('current-year').textContent = now.getFullYear();
-        }
+        };
 
-        // Update time immediately and then every second
-        updateCurrentTime();
-        setInterval(updateCurrentTime, 1000);
+        // Initialize everything
+        const init = () => {
+            setupNebula();
+            updateCurrentTime();
+            setInterval(updateCurrentTime, 1000);
+            
+            // Add event listeners
+            document.getElementById('copyright').addEventListener('click', () => {
+                document.getElementById('credits-overlay').classList.add('active');
+            });
+            
+            document.getElementById('close-credits').addEventListener('click', () => {
+                document.getElementById('credits-overlay').classList.remove('active');
+            });
+            
+            // Add fade-in effect to sections
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        };
+
+        // Run initialization
+        init();
     </script>
 </body>
 </html>
