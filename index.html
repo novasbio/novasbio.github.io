@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova's Nebula</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            overflow-y: scroll;
+        }
+
+        #nebula-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #444;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h1, h2 {
+            color: #eee;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #9370DB;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .time-display {
+            font-weight: bold;
+            color: #9370DB;
+        }
+    </style>
+</head>
+<body>
+    <div id="nebula-container"></div>
+    <div class="content">
+        <header>
+            <h1>Nova's Nebula</h1>
+        </header>
+        <main>
+            <section id="bio">
+                <h2>About Nova</h2>
+                <p><strong>Name:</strong> Nova</p>
+                <p><strong>Nicknames:</strong> Nov, Novs, Novie</p>
+                <p><strong>Gender:</strong> Trans ftm with a hint of Genderfluidity</p>
+                <p><strong>Pronouns:</strong> she/her/he/him/they/them</p>
+                <p><strong>Age:</strong> 15</p>
+                <p><strong>Birthday:</strong> April 21, 2009</p>
+                <p><strong>Sexuality:</strong> Pansexual</p>
+                <p><strong>Relationship status:</strong> Engaged to my handsome; darling partner, Vampy &lt;3 (<a href="#">@rairhyzz</a>)</p>
+                <p><strong>Timezone:</strong> EST (Georgia, USA) - <span class="time-display" id="current-time">Loading current time...</span></p>
+                <br>
+                <p>There's a lot to know about me so if you read all of this then I applaud you; thank you for all your hard work &lt;3</p>
+                <br>
+                <p>I'm a furry and therian with various fursona's and theriotypes, my main being a Himalayan wolf by the name of Nova, or as most know them; Wolfy.</p>
+                <p>I hate homophobes and transphobes, as well as racists and religious fucks- I basically hate everyone unless I know you ;-;</p>
+                <p>I'm autistic as hell and I'm the disorder king-</p>
+                <p>I'm an anime nerd from hell and I'm also an artist & musician as well as a singer. I play electric, bass, and acoustic guitar as well as violin-</p>
+                <p>Just your local emo boy :3 Depressed all the time &lt;3</p>
+                <p>Kinda goth? I dunno haha, I wear a lot of black :3</p>
+                <p>Hope to one day be able to be a full goth >:D</p>
+                <p>Deranged metalhead</p>
+                <p>I hyperfixate like a madman on crack- T-T</p>
+                <p>I share a birthday with Captain Retsu Unohana from Bleach!!</p>
+                <br>
+                <p><strong>Fav thing to do:</strong> Watch anime</p>
+                <p><strong>Fav word:</strong> Fuck- :D</p>
+                <p><strong>Fav color:</strong> Purple</p>
+                <p><strong>Fav shade on the scale of value (white/gray/black):</strong> Black</p>
+                <br>
+                <p>"Sometimes I just wanna jump, but someone keeps pulling me back into the dark abyss of the human world.. For that, I am grateful beyond all definition of the word.." - Me</p>
+                <br>
+                <p>Train wreck & dumpster fire combo</p>
+                <p>Mentally unstable as fuck- I don't know how I'm still here :3</p>
+                <p>I always want to die, but for some reason I've always got a smile on my face =.=</p>
+                <p>I have Dyslexia and Dyscalculia. I most likely will not understand a damn thing you tell me-</p>
+                <p>I have a slight, maybe major alcohol and tobacco addiction; I am however trying to quit.</p>
+                <p>If you text me and I don't respond I'm either busy IRL or I'm actually eeping for once- Either way, I'll text when I can :D</p>
+                <p>I'm not on all the time, and the only times you can actually get a hold of me and talk to me then and there is when I get online at 1-2 AM EST. My parents don't know I have access to my discord account, so I sneak on at night to talk to the people I love and care for the most &lt;3</p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; <span id="current-year">2024</span> Nova's Nebula</p>
+        </footer>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+
+        // Nebula animation
+        const nebulaContainer = document.getElementById('nebula-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        nebulaContainer.appendChild(renderer.domElement);
+
+        // Nebula effect using particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCnt = 5000;
+
+        const posArray = new Float32Array(particlesCnt * 3);
+        const colorArray = new Float32Array(particlesCnt * 3);
+
+        for (let i = 0; i < particlesCnt * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 5;
+            colorArray[i] = Math.random();
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+
+        let particleMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            vertexColors: true,
+            color: 0x9370DB // Purple color for the nebula
+        });
+
+        const particles = new THREE.Points(particlesGeometry, particleMaterial);
+        scene.add(particles);
+
+        camera.position.z = 2;
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            particles.rotation.x += 0.0005;
+            particles.rotation.y += 0.001;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        // Time and date functions
+        function updateCurrentTime() {
+            const options = {
+                timeZone: 'America/New_York',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            
+            const now = new Date();
+            const formatter = new Intl.DateTimeFormat('en-US', options);
+            const timeString = formatter.format(now);
+            
+            document.getElementById('current-time').textContent = `Currently: ${timeString} EST`;
+            
+            // Update year in footer
+            document.getElementById('current-year').textContent = now.getFullYear();
+        }
+
+        // Update time immediately and then every second
+        updateCurrentTime();
+        setInterval(updateCurrentTime, 1000);
+    </script>
+</body>
+</html>
