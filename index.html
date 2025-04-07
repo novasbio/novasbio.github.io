@@ -71,6 +71,46 @@
             font-weight: bold;
             color: #9370DB;
         }
+
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid #9370DB;
+        }
+
+        .lists-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .lists-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .disorder-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .anime-list {
+            columns: 2;
+            column-gap: 20px;
+        }
+
+        .anime-character {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -119,6 +159,114 @@
                 <p>I have a slight, maybe major alcohol and tobacco addiction; I am however trying to quit.</p>
                 <p>If you text me and I don't respond I'm either busy IRL or I'm actually eeping for once- Either way, I'll text when I can :D</p>
                 <p>I'm not on all the time, and the only times you can actually get a hold of me and talk to me then and there is when I get online at 1-2 AM EST. My parents don't know I have access to my discord account, so I sneak on at night to talk to the people I love and care for the most &lt;3</p>
+            </section>
+
+            <!-- Image Gallery -->
+            <section id="gallery">
+                <h2>My Gallery</h2>
+                <div class="image-gallery">
+                    <img src="https://raw.githubusercontent.com/novasbio/novasbio.github.io/refs/heads/main/assets/1.png" alt="Nova image 1">
+                    <img src="https://raw.githubusercontent.com/novasbio/novasbio.github.io/refs/heads/main/assets/2.png" alt="Nova image 2">
+                    <img src="https://raw.githubusercontent.com/novasbio/novasbio.github.io/refs/heads/main/assets/3.png" alt="Nova image 3">
+                    <img src="https://raw.githubusercontent.com/novasbio/novasbio.github.io/refs/heads/main/assets/4.png" alt="Nova image 4">
+                    <img src="https://raw.githubusercontent.com/novasbio/novasbio.github.io/refs/heads/main/assets/5.png" alt="Nova image 5">
+                </div>
+                
+                <p>I know, I'm an ugly rat- I don't give a damn about your opinion of me lol- ^v^ I'm a fabulous bitch and I'm proud of it UwU</p>
+                <p>I don't like to fight, but when I do fight, I fight until my opponent can't move anymore- :3</p>
+                
+                <p><strong>Feb 24th, 2025 - 2:18 am</strong><br>
+                The day and time me and my partner started dating… &lt;3</p>
+                
+                <h3>My disorders</h3>
+                <div class="disorder-list">
+                    <p>NPD - Narcissistic Personality Disorder</p>
+                    <p>ADD - Attention Deficit Disorder</p>
+                    <p>DID - Dissociative Identity Disorder (multiple personality disorder)</p>
+                    <p>ADHD - Attention-Deficit/Hyperactivity Disorder</p>
+                    <p>BPD - Bipolar Disorder</p>
+                    <p>OCD - Obsessive Compulsive Disorder</p>
+                    <p>DMDD - Disruptive Mood Dysregulation Disorder</p>
+                    <p>ASD - Autism Spectrum Disorder</p>
+                    <p>PTSD - Post-Traumatic Stress Disorder</p>
+                    <p>SAD - Social Anxiety Disorder</p>
+                    <p>GAD - Generalized Anxiety Disorder</p>
+                    <p>Clinical Depression</p>
+                    <p>Psychosis</p>
+                    <p>Anorexia</p>
+                </div>
+                
+                <div class="lists-container">
+                    <div>
+                        <h3>My besties!!</h3>
+                        <p>@kaptainkovu ~ James</p>
+                        <p>@ollie_xdyt ~ Ollie</p>
+                        <p>@ghosty_toasty_99 ~ Aiden</p>
+                        <p>@rawr_dinosaurr ~ Xavvy</p>
+                        <p>@_itz.astro_ ~ Astro</p>
+                        <p>@aheart4venus ~ Vee</p>
+                        <p>@bruh_try_me ~ Britt</p>
+                        <p>@.shroompa_loompa ~ Shroomy</p>
+                        <p>@_dinovr__66712 ~ Bread</p>
+                        <p>@aheart4raine ~ Raine</p>
+                        <p>@noamuth1114 ~ Noa</p>
+                    </div>
+                    
+                    <div>
+                        <h3>My family!!</h3>
+                        <p>@rising_phoenyx16 ~ Lea (Big sis)</p>
+                        <p>@ash042283 ~ Ash (Lil bro)</p>
+                        <p>@_omegaqueen_ ~ Luna (Big sis)</p>
+                        <p>@akatsukipain220 ~ Ryker (Big bro)</p>
+                        <p>@xshinsomax_05820 ~ Shin (Big sis)</p>
+                        <p>@elie06 ~ Elie (Big bro)</p>
+                        <p>@keeeli ~ Keeeli (Big Bro)</p>
+                        <p>@_its_mealex_ ~ Alex (Mum)</p>
+                        <p>@needaprescription ~ Zed (Dad)</p>
+                        <p>@0r30z_izab3lla_71573 ~ Bella (Daughter)</p>
+                        <p>@xzyephyr ~ Donald (Son)</p>
+                    </div>
+                </div>
+                
+                <h3>Favorite anime's and characters!!</h3>
+                <div class="anime-list">
+                    <p class="anime-character"><strong>Death Note</strong> - Light Yagami & L. Lawliet</p>
+                    <p class="anime-character"><strong>Naruto</strong> - Itachi Uchiha & Madara Uchiha</p>
+                    <p class="anime-character"><strong>My Hero Academia</strong> - Shoto Todoroki & Katsuki Bakugo</p>
+                    <p class="anime-character"><strong>Demon Slayer</strong> - Sanemi Shinazugawa & Kyojuro Rengoku</p>
+                    <p class="anime-character"><strong>Bleach</strong> - Ulquiorra Cifer, Grimmjow Jaegerjaquez, Sosuke Aizen & Byakuya Kuchiki</p>
+                    <p class="anime-character"><strong>Fullmetal Alchemist</strong> - Edward Elric & Envy</p>
+                    <p class="anime-character"><strong>Jujutsu Kaisen</strong> - Toji Fushiguro, Suguru Geto, Satoru Gojo, Ryomen Sukuna, Choso Kamo & Nanami Kento</p>
+                    <p class="anime-character"><strong>Inuyasha</strong> - Sesshomaru</p>
+                    <p class="anime-character"><strong>Ruroni Kenshin</strong> - Himura Kenshin</p>
+                    <p class="anime-character"><strong>Seven Deadly Sins</strong> - Ban</p>
+                    <p class="anime-character"><strong>Black Butler</strong> - Sebastian Michaelis & Grell Sutcliff</p>
+                    <p class="anime-character"><strong>One Piece</strong> - Roronoa Zoro & Vinsmoke Sanji</p>
+                    <p class="anime-character"><strong>Bungou Stray Dogs</strong> - Dazai Osamu & Chuya Nakahara</p>
+                    <p class="anime-character"><strong>Dr. Stone</strong> - Shishio Tsukasa</p>
+                    <p class="anime-character"><strong>Blue Exorcist</strong> - Rin Okumura</p>
+                    <p class="anime-character"><strong>Attack on Titan</strong> - Eren Yeager & Levi Ackerman</p>
+                    <p class="anime-character"><strong>Dragon Ball</strong> - Beerus & Broly</p>
+                    <p class="anime-character"><strong>TriGun</strong> - Vash the Stampede</p>
+                    <p class="anime-character"><strong>Yu Yu Hakusho</strong> - Yusuke Urameshi</p>
+                    <p class="anime-character"><strong>Hunter x Hunter</strong> - Killua Zoldyck, Illumi Zoldyck & Hisoka</p>
+                    <p class="anime-character"><strong>Vampire Knight</strong> - Zero Kiryu, Kaname Kuran & Headmaster Kaien Cross</p>
+                    <p class="anime-character"><strong>Tokyo Revengers</strong> - Manjiro Sano, Ken Ryuguji & Keisuke Baji</p>
+                    <p class="anime-character"><strong>Spy Family</strong> - Yuri Briar, Loid Forger, & Anya Forger</p>
+                    <p class="anime-character"><strong>Chainsaw Man</strong> - Aki Hayakawa & Denji</p>
+                </div>
+                
+                <p>I've also recently gotten into Alien Stage and my favorite characters are Till & Ivan &lt;3</p>
+                <p>There are many more, but the list would be WAY too long :D</p>
+                
+                <h3>Links</h3>
+                <p><strong>Spotify:</strong><br>
+                Main before I lost access~ <a href="https://open.spotify.com/user/31zvbsvuq4kv2oorenzcvq4pvscq?si=4cc7eab2935e4cfd" target="_blank">https://open.spotify.com/user/31zvbsvuq4kv2oorenzcvq4pvscq?si=4cc7eab2935e4cfd</a><br>
+                Account friend let me use~ <a href="https://open.spotify.com/user/316nc4woztpfgz5h6dmtafpfkjge?si=8961716bbe094fde" target="_blank">https://open.spotify.com/user/316nc4woztpfgz5h6dmtafpfkjge?si=8961716bbe094fde</a><br>
+                New account I made~ <a href="https://open.spotify.com/user/31gxgpfev5t7yz3pzpryk6b2egjm?si=7c5bebb069a04114" target="_blank">https://open.spotify.com/user/31gxgpfev5t7yz3pzpryk6b2egjm?si=7c5bebb069a04114</a></p>
+                
+                <p><strong>Pinterest:</strong> <a href="https://pin.it/4qZ3yxp6p" target="_blank">https://pin.it/4qZ3yxp6p</a></p>
+                <p><strong>Youtube:</strong> <a href="https://youtube.com/@animex_incarnate?si=1--BC0eYcNv5f_jT" target="_blank">https://youtube.com/@animex_incarnate?si=1--BC0eYcNv5f_jT</a></p>
             </section>
         </main>
         <footer>
